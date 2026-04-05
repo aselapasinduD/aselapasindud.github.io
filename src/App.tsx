@@ -23,7 +23,7 @@ function App() {
     return () => {
       window.removeEventListener("resize", onResizeViewport);
     }
-  },[viewportSize, isResizeViewport]);
+  },[viewportSize, isResizeViewport, onResizeViewport]);
 
   return (
     <div className="App flex justify-center">
