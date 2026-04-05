@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Asela-Pasindu-Dias-0.3v/static/css/main.30e812c9.css",
-    "main.js": "/Asela-Pasindu-Dias-0.3v/static/js/main.b50b0af7.js",
+    "main.css": "/Asela-Pasindu-Dias-0.3v/static/css/main.4bfd260c.css",
+    "main.js": "/Asela-Pasindu-Dias-0.3v/static/js/main.84e81fa5.js",
     "static/media/myphoto-small.png": "/Asela-Pasindu-Dias-0.3v/static/media/myphoto-small.00db60bc89040b39c27d.png",
     "static/media/full_stack_development_diagram.jpg": "/Asela-Pasindu-Dias-0.3v/static/media/full_stack_development_diagram.f6fe14738014b0e1689f.jpg",
     "static/media/solution_architecture_diagram.jpg": "/Asela-Pasindu-Dias-0.3v/static/media/solution_architecture_diagram.47131f9201d16b37602d.jpg",
@@ -18,13 +18,13 @@
     "static/media/todo_app.png": "/Asela-Pasindu-Dias-0.3v/static/media/todo_app.8c0b1f59c7272b399b4c.png",
     "static/media/Markdown-Editor-0.2v.png": "/Asela-Pasindu-Dias-0.3v/static/media/Markdown-Editor-0.2v.e07d93633f0c860d0f37.png",
     "index.html": "/Asela-Pasindu-Dias-0.3v/index.html",
-    "static/media/LOGO backgound.svg": "/Asela-Pasindu-Dias-0.3v/static/media/LOGO backgound.626487c715538ee8c81a.svg",
-    "static/media/LOGO.svg": "/Asela-Pasindu-Dias-0.3v/static/media/LOGO.3262da8b09939f968d10aa15f75f2c36.svg",
-    "main.30e812c9.css.map": "/Asela-Pasindu-Dias-0.3v/static/css/main.30e812c9.css.map",
-    "main.b50b0af7.js.map": "/Asela-Pasindu-Dias-0.3v/static/js/main.b50b0af7.js.map"
+    "static/media/LOGO backgound.svg": "/Asela-Pasindu-Dias-0.3v/static/media/LOGO backgound.f4e7c1da3667ea02a9b5.svg",
+    "static/media/LOGO.svg": "/Asela-Pasindu-Dias-0.3v/static/media/LOGO.e682a788907cbddea2a82c81bca3c770.svg",
+    "main.4bfd260c.css.map": "/Asela-Pasindu-Dias-0.3v/static/css/main.4bfd260c.css.map",
+    "main.84e81fa5.js.map": "/Asela-Pasindu-Dias-0.3v/static/js/main.84e81fa5.js.map"
   },
   "entrypoints": [
-    "static/css/main.30e812c9.css",
-    "static/js/main.b50b0af7.js"
+    "static/css/main.4bfd260c.css",
+    "static/js/main.84e81fa5.js"
   ]
 }
