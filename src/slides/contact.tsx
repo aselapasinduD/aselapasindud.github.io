@@ -40,16 +40,79 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
         }
     }, [counter, titleIndex, isOpenContactSection]);
 
+    const handleSubmit = () => {
+        // Option A — simple mailto fallback (works immediately, no backend)
+        const subject = "Portfolio Contact Form";
+        const body = "Fill in form details here";
+        window.location.href = `mailto:your@email.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    };
 
     return (
         <div className={`contact ${className? className: ""} bg-black w-[100%] h-[100%]`}>
             <SectionNavBar title={titleAnimate[0]} handleBackButton={() => dispatch(closeSection('contactSection'))} ismobile={ismobile} />
-            <form className="w-max m-auto">
-                <div className="">
-                    <input id="frist-name" type="text" name="first-name" placeholder="First Name" />
-                    <input id="frist-name" type="text" name="first-name" placeholder="First Name" />
+            <div className="flex flex-col items-center w-full h-full overflow-y-auto pt-[80px] md:pt-[100px] pb-[40px]">
+                
+                {/* First Name + Last Name row */}
+                <div className="flex gap-[8px] w-[90%] max-w-[636px]">
+                    <input
+                        type="text"
+                        name="first-name"
+                        placeholder="First Name"
+                        className="contact-input w-1/2"
+                    />
+                    <input
+                        type="text"
+                        name="last-name"
+                        placeholder="Last Name"
+                        className="contact-input w-1/2"
+                    />
                 </div>
-            </form>
+
+                {/* Email */}
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Email Address"
+                    className="contact-input w-[90%] max-w-[636px] mt-[8px]"
+                />
+
+                {/* Phone */}
+                <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Phone Number (Optional)"
+                    className="contact-input w-[90%] max-w-[636px] mt-[8px]"
+                />
+
+                {/* Subject */}
+                <input
+                    type="text"
+                    name="subject"
+                    placeholder="Subject or Title (Optional)"
+                    className="contact-input w-[90%] max-w-[636px] mt-[8px]"
+                />
+
+                {/* Message */}
+                <textarea
+                    name="message"
+                    placeholder="Type your message..."
+                    rows={6}
+                    className="contact-input w-[90%] max-w-[636px] mt-[8px] resize-none"
+                />
+
+                {/* Submit row */}
+                <div className="flex justify-end w-[90%] max-w-[636px] mt-[8px] items-center gap-[20px]">
+                    <p className="text-[0.85rem]">I will respond as quickly as possible.</p>
+                    <button
+                        type="button"
+                        onClick={handleSubmit}
+                        className="bg-orange px-[18px] py-[4px] rounded-[6px] text-[1rem] uppercase"
+                    >
+                        Submit
+                    </button>
+                </div>
+
+            </div>
         </div>
     );
 }

@@ -18,24 +18,17 @@ const Menu = (props: props) => {
     const [counterMenu1, setCounterMenu1] = useState<number>(0);
     const [menu1Index, setMenu1Index] = useState<number>(0);
 
-    const [menu2, setMenu2] = useState<string[]>([]);
-    const [counterMenu2, setCounterMenu2] = useState<number>(0);
-    const [menu2Index, setMenu2Index] = useState<number>(0);
-
     const [menu3, setMenu3] = useState<string[]>([]);
     const [counterMenu3, setCounterMenu3] = useState<number>(0);
     const [menu3Index, setMenu3Index] = useState<number>(0);
 
-    const menuList = ["ABOUT ME", "Innenta Solutions", "MY BLOG"];
+    const menuList = ["ABOUT ME", "MY BLOG"];
 
     useEffect(() => {
         if(isWebsiteLoaded) helper.StringAnimation(0.5, menuList[0], menu1Index, counterMenu1, setMenu1Index, setCounterMenu1, setMenu1, true, false);
     }, [counterMenu1, menu1Index, isWebsiteLoaded]);
     useEffect(() => {
-        if(isWebsiteLoaded) helper.StringAnimation(0.2, menuList[1], menu2Index, counterMenu2, setMenu2Index, setCounterMenu2, setMenu2, true, false);
-    }, [counterMenu2, menu2Index, isWebsiteLoaded]);
-    useEffect(() => {
-        if(isWebsiteLoaded) helper.StringAnimation(0.5, menuList[2], menu3Index, counterMenu3, setMenu3Index, setCounterMenu3, setMenu3, true, false);
+        if(isWebsiteLoaded) helper.StringAnimation(0.5, menuList[1], menu3Index, counterMenu3, setMenu3Index, setCounterMenu3, setMenu3, true, false);
     }, [counterMenu3, menu3Index, isWebsiteLoaded]);
 
     function handleMouseEnterMenu1(){
@@ -44,14 +37,8 @@ const Menu = (props: props) => {
             setMenu1Index(0);
         }
     }
-    function handleMouseEnterMenu2(){
-        if(menu2[0] === menuList[1]){
-            setCounterMenu2(0);
-            setMenu2Index(0);
-        }
-    }
     function handleMouseEnterMenu3(){
-        if(menu3[0] === menuList[2]){
+        if(menu3[0] === menuList[1]){
             setCounterMenu3(0);
             setMenu3Index(0);
         }
@@ -68,7 +55,6 @@ const Menu = (props: props) => {
             xl:mr-[12%]
         `}>
             <button className="w-[60px] md:w-[100px] text-left" onClick={() => dispatch(toggleSection('aboutMeSection'))} onMouseEnter={handleMouseEnterMenu1}>{menu1[0]}</button>
-            <a className="w-[120px] md:w-[200px]" href="https://innentasolutions.com" onMouseEnter={handleMouseEnterMenu2} target="_blank">{menu2[0]}</a>
             <a className="w-[60px] md:w-[100px]" href="#" onMouseEnter={handleMouseEnterMenu3}>{menu3[0]}</a>
         </div>
     );
