@@ -1,9 +1,11 @@
-#educations {
+#experiences {
     transition: bottom 0.2s ease-in-out;
 }
+
 #projects {
     transition: bottom 0.2s ease-in-out;
 }
+
 #skills {
     transition: bottom 0.2s ease-in-out;
 }
