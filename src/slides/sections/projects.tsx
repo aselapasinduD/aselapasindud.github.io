@@ -182,12 +182,16 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
         }
     }, [counter, titleIndex, isOpenProjectsSection]);
 
-    const projectCardStyle = {'--card-width': '300px', '--card-height': '450px', '--card-height-mobile': '345px'} as React.CSSProperties;
+    const projectCardStyle = {
+        '--card-width': '290px',
+        '--card-height': '450px',
+        '--card-height-mobile': '380px'
+    } as React.CSSProperties;
 
     return(
         <div className="bg-black w-[100%] h-[100%] overflow-y-scroll pb-[15%] sm:pb-[10%]">
             <SectionNavBar title={titleAnimate[0]} handleBackButton={() => dispatch(closeSection('projectsSection'))} ismobile={ismobile} classNameForBackButton='z-10' />
-            <div className="project-list flex flex-wrap justify-center sm:justify-start gap-3 sm:gap-4 p-3" style={projectCardStyle}>
+            <div className="project-list flex flex-wrap justify-center sm:justify-start gap-3 sm:gap-4 p-3 sm:p-4" style={projectCardStyle}>
                 {projectList.map((project, index) =>
                     <div key={index} className="project-card relative w-full sm:w-[var(--card-width)] h-[var(--card-height-mobile)] sm:h-[var(--card-height)] border border-[var(--secondary-color)] overflow-hidden">
                         <div className="project-card-top relative h-1/2 bg-[#ffffff] flex justify-center items-center overflow-hidden">
@@ -213,7 +217,7 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                                     </span>
                                 )}
                             </div>
-                            <div className="h-3/5 overflow-y-scroll py-1">
+                            <div className="h-3/5 overflow-y-auto py-1 [scrollbar-width:thin]">
                                 <p className="text-[1rem] leading-[1.1] px-1">{project.details}</p>
                             </div>
                         </div>

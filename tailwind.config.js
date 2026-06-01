@@ -5,8 +5,8 @@ module.exports = {
   ],
   theme: {
     screens: {
-      "mb400": "400px",
       "mb390": "390px",
+      "mb400": "400px",
       "sm": "640px",
       "md": "768px",
       "lg": "1024px",
@@ -14,7 +14,11 @@ module.exports = {
     },
     colors: {
       "orange": "#ff6600",
-      "black": "#000000"
+      "black": "#000000",
+      "white": "#ffffff",
+      "red": {
+        "500": "#ef4444"
+      }
     },
     extend: {}
   },

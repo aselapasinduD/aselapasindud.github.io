@@ -98,13 +98,13 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                 lg:top-[180px] lg:text-[2rem] lg:right-[60px]
             ">
                 <button type="button" onClick={() => dispatch(toggleSection('skillsSection'))}>
-                    <h1>{skillsSection[0]}</h1>
+                    <h1 className="transition-opacity duration-200 hover:opacity-70">{skillsSection[0]}</h1>
                 </button>
                 <button type="button" onClick={() => dispatch(toggleSection('experiencesSection'))}>
-                    <h1>{experiencesSection[0]}</h1>
+                    <h1 className="transition-opacity duration-200 hover:opacity-70">{experiencesSection[0]}</h1>
                 </button>
                 <button type="button" onClick={() => dispatch(toggleSection('projectsSection'))}>
-                    <h1>{projectsSection[0]}</h1>
+                    <h1 className="transition-opacity duration-200 hover:opacity-70">{projectsSection[0]}</h1>
                 </button>
             </div>
             <div className="

@@ -1,29 +1,24 @@
-import { useLayoutEffect, useState } from 'react';
+import { useLayoutEffect, useState, useCallback } from 'react';
 import Home from './slides/home';
 import Contact from './slides/contact';
 import AboutMe from './slides/aboutMe';
 
 function App() {
   const [viewportSize, setViewPortSize] = useState<number[]>([]);
-  const [isResizeViewport, setIsResizeViwport] = useState<boolean>(false);
-  
-  const onResizeViewport = () => {
-    isResizeViewport ? setIsResizeViwport(false) : setIsResizeViwport(true);
-  }
 
-  useLayoutEffect(() => {
-    window.addEventListener("resize", onResizeViewport);
-
+  const updateViewportSize = useCallback(() => {
     const viewportWidth = window.innerWidth - 100;
     const viewportHeight = window.innerHeight;
-    const getviewPortSize = [viewportWidth, viewportHeight];
+    setViewPortSize([viewportWidth, viewportHeight]);
+  }, []);
 
-    if (viewportSize[0] !== getviewPortSize[0]) setViewPortSize(getviewPortSize);
-
+  useLayoutEffect(() => {
+    updateViewportSize();
+    window.addEventListener("resize", updateViewportSize);
     return () => {
-      window.removeEventListener("resize", onResizeViewport);
-    }
-  },[viewportSize, isResizeViewport, onResizeViewport]);
+      window.removeEventListener("resize", updateViewportSize);
+    };
+  }, [updateViewportSize]);
 
   return (
     <div className="App flex justify-center">

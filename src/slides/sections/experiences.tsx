@@ -108,7 +108,7 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                         })}
                     </div>
                 </div>
-                <div className="w-11/12 md:w-9/12 m-auto overflow-y-scroll flex-1">
+                <div className="w-11/12 md:w-9/12 m-auto overflow-auto flex-1">
                     {educations.map((education, index) => 
                         <div key={index}>
                             <h4 className="text-center text-600 text-[1.8rem]">{education.title}</h4>
