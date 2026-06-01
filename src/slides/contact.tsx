@@ -85,7 +85,7 @@ This message was sent through your portfolio contact form.
     return (
         <div className={`contact ${className? className: ""} bg-black w-[100%] h-[100%]`}>
             <SectionNavBar title={titleAnimate[0]} handleBackButton={() => dispatch(closeSection('contactSection'))} ismobile={ismobile} />
-            <div className="flex flex-col items-center w-full h-full overflow-y-auto pt-[80px] md:pt-[100px] pb-[40px]">
+            <div className="flex flex-col items-center overflow-y-auto pt-[80px] md:pt-[100px] pb-[40px]">
                 
                 {/* First Name + Last Name row */}
                 <div className="flex gap-[8px] w-[90%] max-w-[636px]">
