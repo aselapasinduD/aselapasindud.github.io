@@ -20,6 +20,7 @@ type childrenProps = props & ismobile;
 
 const ChildrenWithProps = (childrenProps: childrenProps) => {
     const {ViewportSize, className, ismobile} = childrenProps;
+    const [formData, setFormData] = useState({firstName: "", lastName: "", email: "", phone: "", subject: "", message: ""});
     const dispatch = useAppDispatch();
 
     const isOpenContactSection = useAppSelector((state) => state.section.contactSection);
@@ -40,11 +41,45 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
         }
     }, [counter, titleIndex, isOpenContactSection]);
 
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+
     const handleSubmit = () => {
-        // Option A — simple mailto fallback (works immediately, no backend)
-        const subject = "Portfolio Contact Form";
-        const body = "Fill in form details here";
-        window.location.href = `mailto:your@email.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        const {firstName, lastName, email, phone, subject, message} = formData;
+
+        const emailSubject = subject.trim() || `Portfolio Inquiry from ${firstName} ${lastName}`;
+
+        const emailBody = `
+Hello Asela,
+
+You have received a new inquiry through your portfolio website.
+
+━━━━━━━━━━━━━━━━━━━━
+CONTACT INFORMATION
+━━━━━━━━━━━━━━━━━━━━
+
+Name: ${firstName} ${lastName}
+Email: ${email}
+Phone: ${phone || "Not Provided"}
+
+━━━━━━━━━━━━━━━━━━━━
+MESSAGE
+━━━━━━━━━━━━━━━━━━━━
+
+${message}
+
+━━━━━━━━━━━━━━━━━━━━
+END OF MESSAGE
+━━━━━━━━━━━━━━━━━━━━
+
+This message was sent through your portfolio contact form.
+`;
+
+        window.location.href = `mailto:asela.pasindu.dias17@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
     };
 
     return (
@@ -56,14 +91,18 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                 <div className="flex gap-[8px] w-[90%] max-w-[636px]">
                     <input
                         type="text"
-                        name="first-name"
+                        name="firstName"
                         placeholder="First Name"
+                        value={formData.firstName}
+                        onChange={handleChange}
                         className="contact-input w-1/2"
                     />
                     <input
                         type="text"
-                        name="last-name"
+                        name="lastName"
                         placeholder="Last Name"
+                        value={formData.lastName}
+                        onChange={handleChange}
                         className="contact-input w-1/2"
                     />
                 </div>
@@ -73,6 +112,8 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                     type="email"
                     name="email"
                     placeholder="Email Address"
+                    value={formData.email}
+                    onChange={handleChange}
                     className="contact-input w-[90%] max-w-[636px] mt-[8px]"
                 />
 
@@ -81,6 +122,8 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                     type="tel"
                     name="phone"
                     placeholder="Phone Number (Optional)"
+                    value={formData.phone}
+                    onChange={handleChange}
                     className="contact-input w-[90%] max-w-[636px] mt-[8px]"
                 />
 
@@ -89,6 +132,8 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                     type="text"
                     name="subject"
                     placeholder="Subject or Title (Optional)"
+                    value={formData.subject}
+                    onChange={handleChange}
                     className="contact-input w-[90%] max-w-[636px] mt-[8px]"
                 />
 
@@ -97,6 +142,8 @@ const ChildrenWithProps = (childrenProps: childrenProps) => {
                     name="message"
                     placeholder="Type your message..."
                     rows={6}
+                    value={formData.message}
+                    onChange={handleChange}
                     className="contact-input w-[90%] max-w-[636px] mt-[8px] resize-none"
                 />
 
